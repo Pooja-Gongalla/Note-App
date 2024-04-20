@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from '../style.module.css';
 
-function AddNote({ currentnote, setCurrentnote, notelist, setnotelist, currentEditnote }) { //currentnote is a variable passed as a prop to the AddNote function component.
-  console.log(currentnote, notelist);
+function AddNote({ currentNote, setCurrentNote, noteList, setNoteList, currentEditNote }) { //currentnote is a variable passed as a prop to the AddNote function component.
+  console.log(currentNote, noteList);
 
   function handleNoteOnSubmit(event) {
     event.preventDefault();
-    notelist.push({
-      id: notelist.length + 1,
-      label: currentnote,
+    noteList.push({
+      id: noteList.length + 1,
+      label: currentNote,
     });
-    setnotelist(notelist);// setnotelist(notelist): This line seems to be using a state-setting function, presumably from a React component. It updates the state variable notelist with the modified array after pushing the new note.
-    setCurrentnote("");
+    setNoteList(noteList);// setnotelist(notelist): This line seems to be using a state-setting function, presumably from a React component. It updates the state variable notelist with the modified array after pushing the new note.
+    setCurrentNote("");
   }
   return (
     <form onSubmit={handleNoteOnSubmit} className={styles.form}>
@@ -19,11 +19,11 @@ function AddNote({ currentnote, setCurrentnote, notelist, setnotelist, currentEd
         name="current-note"
         id="current-note"
         placeholder="enter note"
-        value={currentnote || ''}
-        onChange={(event) => setCurrentnote(event.target.value)}
+        value={currentNote }
+        onChange={(event) => setCurrentNote(event.target.value)}
       />
       <button type="submit" className={styles.button}> 
-        {!!currentEditnote ? 'Edit Note' : 'Add Note'} 
+        {!!currentEditNote ? 'Edit Note' : 'Add Note'} 
      </button>
     </form>
   );

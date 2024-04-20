@@ -1,20 +1,20 @@
 import styles from '../style.module.css';
-function NodeList({ notelist, setcurrentEditnote, setCurrentnote,setNotesList}) {
+function NodeList({ noteList, setcurrentEditNote, setCurrentNote,setNoteList}) {
     function handleEdit(getCurrentItem) {
         console.log(getCurrentItem);
-        setcurrentEditnote(getCurrentItem);
-        setCurrentnote(getCurrentItem.label); //the entered item need to populate in the input text box
+        setcurrentEditNote(getCurrentItem);
+        setCurrentNote(getCurrentItem.label); //the entered item need to populate in the input text box
       }
       function HandleDelete(getCurrentId)
       {
          console.log(getCurrentId);
-         setNotesList(notelist.filter(item=> item.id!==getCurrentId));
+         setNoteList(noteList.filter(item=> item.id!==getCurrentId));
 
       }
     return (
       <ul className={styles.noteList}>
-        {notelist && notelist.length > 0 ? (
-          notelist.map((noteItem) => (
+        {noteList && noteList.length > 0 ? (
+          noteList.map((noteItem) => (
             <li key={noteItem.id}>
 
 {/* key={noteItem.id}:
